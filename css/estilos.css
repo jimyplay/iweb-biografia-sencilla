@@ -1,0 +1,325 @@
+/* ===========================================
+   SISTEMA DE DISEÑO — MONOCROMÁTICO MORADO
+   =========================================== */
+:root {
+  /* Escala monocromática (morado oscuro → claro) */
+  --morado-950: #120a1f;
+  --morado-900: #1c1130;
+  --morado-800: #291941;
+  --morado-700: #3a2359;
+  --morado-500: #6c4a9c;
+  --morado-300: #b39ddb;
+  --morado-200: #ddd0ef;
+
+  --tinta: #f4f0fa;
+  --tinta-tenue: #c6b8dc;
+
+  --radio-suave: 14px;
+  --radio-pastilla: 999px;
+
+  --fuente-titulo: "Fraunces", "Georgia", serif;
+  --fuente-texto: "Manrope", "Segoe UI", sans-serif;
+
+  --ancho-lectura: 720px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--fuente-texto);
+  font-size: 1.05rem;
+  color: var(--tinta);
+  background-color: var(--morado-950);
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radio-suave);
+}
+
+a {
+  color: var(--morado-200);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--morado-300);
+  outline-offset: 3px;
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+/* ===========================================
+   ENCABEZADO PRINCIPAL
+   =========================================== */
+.header-principal {
+  background-color: var(--morado-900);
+  border-bottom: 1px solid var(--morado-700);
+  padding: 2.75rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.header-principal h1 {
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  letter-spacing: 0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  color: var(--tinta-tenue);
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Menú global (entre páginas) */
+.menu-navegacion ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.menu-navegacion a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--tinta);
+  padding: 0.55rem 1.3rem;
+  border-radius: var(--radio-pastilla);
+  border: 1.5px solid var(--morado-500);
+  background-color: transparent;
+  font-size: 0.92rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-navegacion a:hover {
+  background-color: var(--morado-800);
+  border-color: var(--morado-300);
+}
+
+.menu-navegacion a.activo {
+  background-color: var(--morado-500);
+  border-color: var(--morado-300);
+}
+
+/* Menú secundario (por secciones dentro de la biografía) */
+.menu-secciones {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--morado-950);
+  border-bottom: 1px solid var(--morado-700);
+  padding: 0.85rem 1.5rem;
+}
+
+.menu-secciones ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.menu-secciones a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--tinta-tenue);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radio-pastilla);
+  border: 1.5px solid transparent;
+  font-size: 0.88rem;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-secciones a:hover,
+.menu-secciones a.activo {
+  color: var(--tinta);
+  border-color: var(--morado-500);
+}
+
+/* ===========================================
+   CONTENIDO PRINCIPAL
+   =========================================== */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.75rem 1.5rem;
+}
+
+section {
+  margin-bottom: 3.25rem;
+  scroll-margin-top: 4.5rem;
+}
+
+section p {
+  max-width: var(--ancho-lectura);
+}
+
+h2 {
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--morado-700);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.15rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  color: var(--morado-200);
+  margin-bottom: 0.4rem;
+}
+
+.presentacion-equipo p {
+  color: var(--tinta-tenue);
+}
+
+/* ===========================================
+   TARJETAS DE INTEGRANTES (index)
+   =========================================== */
+.tarjetas-integrantes {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tarjeta-integrante {
+  background-color: var(--morado-900);
+  border: 1px solid var(--morado-700);
+  border-radius: 18px;
+  padding: 1.5rem;
+  flex: 1 1 280px;
+  box-shadow: 0 10px 28px rgba(9, 4, 18, 0.5);
+}
+
+.tarjeta-integrante img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 1px solid var(--morado-700);
+}
+
+.tarjeta-integrante h3 {
+  margin-bottom: 0.3rem;
+}
+
+.tarjeta-integrante p {
+  color: var(--tinta-tenue);
+  font-size: 0.95rem;
+  margin-bottom: 0.9rem;
+}
+
+.enlace-boton {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--tinta);
+  border: 1.5px solid var(--morado-500);
+  border-radius: var(--radio-suave);
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.enlace-boton:hover {
+  background-color: var(--morado-800);
+  border-color: var(--morado-300);
+}
+
+/* ===========================================
+   PÁGINAS DE BIOGRAFÍA
+   =========================================== */
+.foto-perfil {
+  width: 220px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--morado-700);
+}
+
+.formacion ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: var(--ancho-lectura);
+}
+
+.formacion li {
+  background-color: var(--morado-900);
+  border: 1px solid var(--morado-700);
+  border-left: 3px solid var(--morado-500);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+}
+
+.formacion strong {
+  color: var(--morado-200);
+}
+
+.grid-hobbies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.hobby {
+  background-color: var(--morado-900);
+  border: 1px solid var(--morado-700);
+  border-radius: 18px;
+  padding: 1.1rem;
+  box-shadow: 0 10px 28px rgba(9, 4, 18, 0.45);
+}
+
+.hobby img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+  border: 1px solid var(--morado-700);
+}
+
+.hobby p {
+  color: var(--tinta-tenue);
+  font-size: 0.96rem;
+}
+
+.metas p {
+  background-color: var(--morado-900);
+  border: 1px solid var(--morado-700);
+  border-left: 3px solid var(--morado-500);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+}
+
+/* ===========================================
+   PIE DE PÁGINA
+   =========================================== */
+.footer-principal {
+  background-color: var(--morado-900);
+  border-top: 1px solid var(--morado-700);
+  color: var(--tinta-tenue);
+  text-align: center;
+  padding: 1.25rem;
+  font-size: 0.85rem;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biografía del Compañero/a</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header class="header-principal">
+    <h1>Biografía de [Nombre del compañero/a]</h1>
+    <nav class="menu-navegacion">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="biografia1.html">Biografía de Jerx</a></li>
+        <li><a href="biografia2.html" class="activo">Biografía del Compañero/a</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <nav class="menu-secciones" aria-label="Secciones de la biografía">
+    <ul>
+      <li><a href="#presentacion" data-seccion="presentacion">Presentación</a></li>
+      <li><a href="#formacion" data-seccion="formacion">Formación</a></li>
+      <li><a href="#hobbies" data-seccion="hobbies">Hobbies</a></li>
+      <li><a href="#metas" data-seccion="metas">Metas</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <article class="biografia">
+
+      <section id="presentacion" class="presentacion-personal">
+        <h2>Presentación</h2>
+        <img src="img/placeholder.jpg" alt="Foto de perfil del compañero o compañera" class="foto-perfil">
+        <p><!-- Breve descripción personal aquí --></p>
+      </section>
+
+      <section id="formacion" class="formacion">
+        <h2>Formación e intereses académicos</h2>
+        <ul>
+          <li><strong>Carrera:</strong> </li>
+          <li><strong>Áreas de interés:</strong> </li>
+          <li><strong>Tecnologías que le interesan:</strong> </li>
+          <li><strong>Temas que le gustaría aprender:</strong> </li>
+        </ul>
+      </section>
+
+      <section id="hobbies" class="hobbies">
+        <h2>Hobbies e intereses personales</h2>
+        <div class="grid-hobbies">
+          <article class="hobby">
+            <img src="img/placeholder.jpg" alt="Hobby 1">
+            <h3>Hobby 1</h3>
+            <p></p>
+          </article>
+          <article class="hobby">
+            <img src="img/placeholder.jpg" alt="Hobby 2">
+            <h3>Hobby 2</h3>
+            <p></p>
+          </article>
+          <article class="hobby">
+            <img src="img/placeholder.jpg" alt="Hobby 3">
+            <h3>Hobby 3</h3>
+            <p></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="metas" class="metas">
+        <h2>Metas e intereses futuros</h2>
+        <p></p>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="footer-principal">
+    <p>Universidad Tecnológica de Panamá, Facultad de Ingeniería de Sistemas Computacionales, 2026</p>
+  </footer>
+
+  <script>
+    const enlacesSeccion = document.querySelectorAll('.menu-secciones a');
+    const secciones = document.querySelectorAll('main section[id]');
+
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach((entrada) => {
+        const enlace = document.querySelector(
+          `.menu-secciones a[data-seccion="${entrada.target.id}"]`
+        );
+        if (!enlace) return;
+        if (entrada.isIntersecting) {
+          enlacesSeccion.forEach((a) => a.classList.remove('activo'));
+          enlace.classList.add('activo');
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+
+    secciones.forEach((seccion) => observador.observe(seccion));
+  </script>
+
+</body>
+</html>
